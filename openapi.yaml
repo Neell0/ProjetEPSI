@@ -1,0 +1,42 @@
+openapi: 3.0.0
+info:
+  title: Calculator API
+  version: 1.0.0
+  description: API pour utiliser la calculatrice sans interface graphique
+servers:
+  - url: http://localhost:3000
+paths:
+  /calculate:
+    post:
+      summary: Calcule une expression mathématique
+      requestBody:
+        required: true
+        content:
+          application/json:
+            schema:
+              type: object
+              properties:
+                expression:
+                  type: string
+                  example: "3+5*2"
+      responses:
+        '200':
+          description: Résultat du calcul
+          content:
+            application/json:
+              schema:
+                type: object
+                properties:
+                  result:
+                    type: number
+                    example: 13
+        '400':
+          description: Erreur dans l'expression
+          content:
+            application/json:
+              schema:
+                type: object
+                properties:
+                  error:
+                    type: string
+                    example: "Invalid expression"
