@@ -34,9 +34,5 @@ Ce projet consiste à créer une page HTML contenant une calculatrice utilisable
 2. Ouvrir le fichier `index.html` dans un navigateur web pour voir la calculatrice en action.
 3. Modifier les fichiers `styles.css` et `script.js` pour personnaliser la calculatrice selon vos besoins.
 
-## Auteur
-- Nom : [Votre Nom]
-- Contact : [Votre Email]
-
 ## Licence
 Ce projet est sous licence MIT. Voir le fichier `LICENSE` pour plus de détails.
