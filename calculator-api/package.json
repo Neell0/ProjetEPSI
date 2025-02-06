@@ -8,6 +8,7 @@
     "dev": "nodemon src/app.js"
   },
   "dependencies": {
+    "calculator-api": "file:",
     "express": "^4.17.1"
   },
   "devDependencies": {
