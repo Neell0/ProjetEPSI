@@ -6,9 +6,9 @@ info:
 servers:
   - url: http://localhost:3000
 paths:
-  /calculate:
+  /api/calculator/add:
     post:
-      summary: Calcule une expression mathématique
+      summary: Additionne deux nombres
       requestBody:
         required: true
         content:
@@ -16,12 +16,15 @@ paths:
             schema:
               type: object
               properties:
-                expression:
-                  type: string
-                  example: "3+5*2"
+                a:
+                  type: number
+                  example: 5
+                b:
+                  type: number
+                  example: 3
       responses:
         '200':
-          description: Résultat du calcul
+          description: Résultat de l'addition
           content:
             application/json:
               schema:
@@ -29,9 +32,9 @@ paths:
                 properties:
                   result:
                     type: number
-                    example: 13
+                    example: 8
         '400':
-          description: Erreur dans l'expression
+          description: Erreur dans les paramètres
           content:
             application/json:
               schema:
@@ -39,4 +42,117 @@ paths:
                 properties:
                   error:
                     type: string
-                    example: "Invalid expression"
+                    example: "All arguments must be numbers."
+  /api/calculator/subtract:
+    post:
+      summary: Soustrait deux nombres
+      requestBody:
+        required: true
+        content:
+          application/json:
+            schema:
+              type: object
+              properties:
+                a:
+                  type: number
+                  example: 5
+                b:
+                  type: number
+                  example: 3
+      responses:
+        '200':
+          description: Résultat de la soustraction
+          content:
+            application/json:
+              schema:
+                type: object
+                properties:
+                  result:
+                    type: number
+                    example: 2
+        '400':
+          description: Erreur dans les paramètres
+          content:
+            application/json:
+              schema:
+                type: object
+                properties:
+                  error:
+                    type: string
+                    example: "All arguments must be numbers."
+  /api/calculator/multiply:
+    post:
+      summary: Multiplie deux nombres
+      requestBody:
+        required: true
+        content:
+          application/json:
+            schema:
+              type: object
+              properties:
+                a:
+                  type: number
+                  example: 5
+                b:
+                  type: number
+                  example: 3
+      responses:
+        '200':
+          description: Résultat de la multiplication
+          content:
+            application/json:
+              schema:
+                type: object
+                properties:
+                  result:
+                    type: number
+                    example: 15
+        '400':
+          description: Erreur dans les paramètres
+          content:
+            application/json:
+              schema:
+                type: object
+                properties:
+                  error:
+                    type: string
+                    example: "All arguments must be numbers."
+  /api/calculator/divide:
+    post:
+      summary: Divise deux nombres
+      requestBody:
+        required: true
+        content:
+          application/json:
+            schema:
+              type: object
+              properties:
+                a:
+                  type: number
+                  example: 6
+                b:
+                  type: number
+                  example: 3
+      responses:
+        '200':
+          description: Résultat de la division
+          content:
+            application/json:
+              schema:
+                type: object
+                properties:
+                  result:
+                    type: number
+                    example: 2
+        '400':
+          description: Erreur dans les paramètres ou division par zéro
+          content:
+            application/json:
+              schema:
+                type: object
+                properties:
+                  error:
+                    type: string
+                    examples:
+                      invalidParams: "All arguments must be numbers."
+                      divisionByZero: "Division by zero is not allowed."
