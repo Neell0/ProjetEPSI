@@ -82,5 +82,6 @@ Ce projet démontre comment créer une API RESTful simple pour effectuer des op�
 
 Merci pour votre attention.
 
-
 Cette présentation couvre les aspects clés de votre projet, y compris les objectifs, la structure, les fonctionnalités, l'installation et l'utilisation.
+
+![singe](https://i.ibb.co/S4Wr0Zn6/singe.jpg)
