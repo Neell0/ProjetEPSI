@@ -1,7 +1,4 @@
 let display = document.getElementById('display');
-let currentOperation = '';
-let firstOperand = '';
-let secondOperand = '';
 let shouldResetDisplay = false;
 
 function appendNumber(number) {
@@ -13,12 +10,7 @@ function appendNumber(number) {
 }
 
 function setOperation(operation) {
-    if (display.value === '') return;
-    if (currentOperation !== '') {
-        calculate();
-    }
-    firstOperand = display.value;
-    currentOperation = operation;
+    if (display.value === '' || shouldResetDisplay) return;
     display.value += operation;
     shouldResetDisplay = false;
 }
@@ -28,21 +20,14 @@ function calculate() {
     try {
         let result = eval(expression);
         display.value = result;
-        firstOperand = result;
-        currentOperation = '';
         shouldResetDisplay = true;
     } catch (error) {
         display.value = 'Erreur';
-        firstOperand = '';
-        currentOperation = '';
         shouldResetDisplay = true;
     }
 }
 
 function clearDisplay() {
     display.value = '';
-    firstOperand = '';
-    secondOperand = '';
-    currentOperation = '';
     shouldResetDisplay = false;
 }
